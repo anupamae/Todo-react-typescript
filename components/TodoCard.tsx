@@ -2,16 +2,21 @@ import { ITodoItem } from './TodoList';
 
 interface ITodoCardProps {
   todoItem: ITodoItem;
-  toggleDone: (itemId: string) => void;
+  toggleDone: (item: ITodoItem) => void;
   removeTodoItem: (itemId: string) => void;
 }
 
 const TodoCard = (props: ITodoCardProps) => {
-  const handleToggle = () => {
-    props.toggleDone(props.todoItem._id);
+  const handleToggle = (event: any) => {
+    event.stopPropagation();
+    props.toggleDone({
+      ...props.todoItem, 
+      isDone: !props.todoItem.isDone
+    });
   };
 
-  const handleRemove = () => {
+  const handleRemove = (event: any) => {
+    event.stopPropagation();
     if (props.todoItem.isDone) {
       props.removeTodoItem(props.todoItem._id);
     }
@@ -19,9 +24,9 @@ const TodoCard = (props: ITodoCardProps) => {
 
   const handleKeyUp = (event: any) => {
     if (event.key === 'Enter') {
-      handleToggle();
+      handleToggle(event);
     } else if (event.key === 'Delete') {
-      handleRemove();
+      handleRemove(event);
     }
   };
 
