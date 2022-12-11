@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+
 import { ITodoItem } from './TodoList';
 
 interface IFormProps {
@@ -12,7 +13,7 @@ const Form = (props: IFormProps) => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     props.addTodoItem({
-      id: uuidv4(),
+      _id: uuidv4(),
       title: title,
       isDone: false,
     });

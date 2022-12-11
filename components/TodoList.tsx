@@ -4,7 +4,7 @@ import Form from './Form';
 import TodoCard from './TodoCard';
 
 export interface ITodoItem {
-  id: string;
+  _id: string;
   title: string;
   isDone: boolean;
 }
@@ -23,9 +23,9 @@ const TodoList = (props: ITodoListProps) => {
   const toggleDone = (itemId: string) => {
     props.updateTodoList(
       props.todoList.map((value) => {
-        if (value.id === itemId) {
+        if (value._id === itemId) {
           return {
-            id: value.id,
+            _id: value._id,
             title: value.title,
             isDone: !value.isDone,
           };
@@ -37,7 +37,7 @@ const TodoList = (props: ITodoListProps) => {
   };
 
   const removeTodoItem = (itemId: string) => {
-    const index = props.todoList.findIndex((value) => value.id === itemId);
+    const index = props.todoList.findIndex((value) => value._id === itemId);
     props.todoList.splice(index, 1);
     props.updateTodoList(props.todoList);
   };
@@ -49,12 +49,12 @@ const TodoList = (props: ITodoListProps) => {
         {props.todoList
           .filter((value) => value.isDone === false)
           .map((value) => (
-            <TodoCard key={value.id} todoItem={value} toggleDone={toggleDone} removeTodoItem={removeTodoItem} />
+            <TodoCard key={value._id} todoItem={value} toggleDone={toggleDone} removeTodoItem={removeTodoItem} />
           ))}
         {props.todoList
           .filter((value) => value.isDone === true)
           .map((value) => (
-            <TodoCard key={value.id} todoItem={value} toggleDone={toggleDone} removeTodoItem={removeTodoItem} />
+            <TodoCard key={value._id} todoItem={value} toggleDone={toggleDone} removeTodoItem={removeTodoItem} />
           ))}
       </section>
     </React.Fragment>

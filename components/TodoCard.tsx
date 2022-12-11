@@ -8,12 +8,12 @@ interface ITodoCardProps {
 
 const TodoCard = (props: ITodoCardProps) => {
   const handleToggle = () => {
-    props.toggleDone(props.todoItem.id);
+    props.toggleDone(props.todoItem._id);
   };
 
   const handleRemove = () => {
     if (props.todoItem.isDone) {
-      props.removeTodoItem(props.todoItem.id);
+      props.removeTodoItem(props.todoItem._id);
     }
   };
 
