@@ -1,6 +1,13 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## ToDo List App 
 
-## Getting Started
+Next JS is a framework that holds React on its base, while React JS is an open-source JavaScript library, developed and maintained by Facebook. Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. Ther is no need od specific configuration.
+
+This is a ToDo list app created using TypeScript with Next, CSS and MongoDB database.
+
+https://todo-react-typescript-anupamae.vercel.app
+
+
+# Getting Started
 
 First, run the development server:
 
